@@ -1,35 +1,19 @@
 #include <iostream>
 
-// ===========================================================================
-//
-// rtttl string player
-//
-// ===========================================================================
-
-bool is_digit(char c)
-{
-    return (c >= '0') && (c <= '9');
-}
-bool is_lowercase(char c)
-{
-    return (c >= 'a') && (c <= 'z');
-}
-
+bool is_digit(char c){ return (c >= '0') && (c <= '9'); }
+bool is_lowercase(char c){return (c >= 'a') && (c <= 'z'); }
 int frequencies[] = { 440, 494, 523, 587, 659, 698, 784 };
 
-void play(const char* s)
-{
+void play(const char* s){
+    std::cout << "#include \"player.hpp\"\n\n";
+    std::cout << "void playsong (player& p) {\n\n";
+
     int def_duration = 4, def_octave = 6, value;
     int duration, octave, frequency;
     int state = 0;
     char def;
     bool dot;
-    std::cout << "#include \"player.hpp\"\n";
-    std::cout << "void play playsong(& p){ \n";
-              
-              
-
-    for(const char* p = s; state >= 0; p++) {
+	for(const char* p = s; state >= 0; p++) {
         const char c = *p;
         switch(state) {
 
@@ -38,7 +22,7 @@ void play(const char* s)
             if(c == ':') {
                 state = 1;
             } else {
-                //hwlib::cout << c;
+                // hwlib::cout << c;
             }
             break;
 
@@ -159,24 +143,21 @@ void play(const char* s)
                 }
 
                 std::cout << "lsp.play(note{" << frequency << "," << duration << "} ); /n";
-            state = 4;
+                state = 4;
+            } else {
+                // HWLIB_TRACE << "c=[" << c << "]";
+            }
+            if(c == '\0') {
+                state = -1;
+            }
+            break;
         }
-        else
-        {
-            // HWLIB_TRACE << "c=[" << c << "]";
-        }
-        if(c == '\0') {
-            state = -1;
-        }
-        break;
     }
-}
-// HWLIB_TRACE << "done";
+    // HWLIB_TRACE << "done";
+    std::cout << "}\n";
 }
 
 int main(int argc, char** argv)
 {
     play(argv[1]);
-    std::cout << "#include \"player.hpp\"\n";
-    std::cout << "void play playsong(& p){ \n";
 }

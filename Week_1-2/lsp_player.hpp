@@ -4,12 +4,6 @@
 #ifndef lsp_player_HPP
 #define lsp_player_HPP
 
-// ===========================================================================
-//
-// simple note player for a speaker connected to a GPIO pin
-//
-// ===========================================================================
-
 class lsp_player : public player {
 private:   
    hwlib::pin_out & lsp;
