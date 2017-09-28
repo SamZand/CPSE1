@@ -1,20 +1,29 @@
 #include <iostream>
+#include <fstream>
 
-bool is_digit(char c){ return (c >= '0') && (c <= '9'); }
-bool is_lowercase(char c){return (c >= 'a') && (c <= 'z'); }
+bool is_digit(char c)
+{
+    return (c >= '0') && (c <= '9');
+}
+bool is_lowercase(char c)
+{
+    return (c >= 'a') && (c <= 'z');
+}
 int frequencies[] = { 440, 494, 523, 587, 659, 698, 784 };
 
-void play(const char* s){
+void play(const char* s)
+{
     std::cout << "#include \"player.hpp\"\n\n";
-    std::cout << "void playsong (player& p) {\n\n";
+    std::cout << "void playsong (player& p) {\n\n" << std::flush;
 
     int def_duration = 4, def_octave = 6, value;
     int duration, octave, frequency;
     int state = 0;
     char def;
     bool dot;
-	for(const char* p = s; state >= 0; p++) {
+    for(const char* p = s; state >= 0; p++) {
         const char c = *p;
+        // std::cout << "state=" << state << " c=[" << c << "] d=" << duration << "\n" << std::flush;
         switch(state) {
 
         // title
@@ -97,6 +106,7 @@ void play(const char* s){
                 if(c == 'p') {
                     frequency = 0;
                 } else {
+                    // std::cout << (int) ( c - 'a' ) << "\n" << std::flush;
                     frequency = frequencies[c - 'a'];
                 }
             } else {
@@ -132,18 +142,23 @@ void play(const char* s){
         // fallthrough!
 
         case 10:
+            // std::cout << "@" << __LINE__ << " c=" << (int)c <<"\n" << std::flush;
             if((c == ',') || (c == '\0')) {
+                // std::cout << "@" << __LINE__ << " c=" << (int)c <<"\n" << std::flush;
                 while(octave > 5) {
                     --octave;
                     frequency *= 2;
                 }
-                duration = 2000000 / duration;
+                // std::cout << "@" << __LINE__ << " d=" << duration <<"\n" << std::flush;
+                duration = 1000000 / duration;
+                // std::cout << "@" << __LINE__ << " c=" << (int)c <<"\n" << std::flush;
                 if(dot) {
                     duration = 3 * duration / 2;
                 }
+                // std::cout << "@" << __LINE__ << " c=" << (int)c <<"\n" << std::flush;
 
-                std::cout << "lsp.play(note{" << frequency << "," << duration << "} ); /n";
-                state = 4;
+                std::cout << "p.play( note{ " << frequency << "," << duration << "} );\n" << std::flush;
+                state = 3;
             } else {
                 // HWLIB_TRACE << "c=[" << c << "]";
             }
@@ -154,10 +169,17 @@ void play(const char* s){
         }
     }
     // HWLIB_TRACE << "done";
-    std::cout << "}\n";
+    std::cout << "}\n" << std::flush;
 }
 
 int main(int argc, char** argv)
-{
-    play(argv[1]);
+{   
+    std::ifstream infile(argv[1]);
+    std::string song;
+    std::getline(infile, song);
+    const char *p = song.c_str();
+    
+    // std::cout << "Hello\n" << std::flush;
+    play(p);
+    // std::cout << "klaar\n" << std::flush;
 }

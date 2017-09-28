@@ -1,5 +1,5 @@
-#ifndef NOTE_HPP
-#define NOTE_HPP
+#ifndef note_hpp
+#define note_hpp
 
 class note {
 public:
@@ -28,5 +28,4 @@ public:
    static const int dQ = dF / 4;
 };
 
-
-#endif // NOTE_HPP
+#endif

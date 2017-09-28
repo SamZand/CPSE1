@@ -10,19 +10,18 @@
 
 # source files in this project (main.cpp is automatically assumed)
 SOURCES := song.cpp
-
+ 
 # header files in this project
-HEADERS := player.hpp lsp_player.hpp
-     
+HEADERS := lsp_player.hpp player.hpp 
 # other places to look for files for this project
-SEARCH  :=     
-     
-song.cpp: Makefile Make_song.exe   
-	Make_song "Bond:d=4,o=5,b=320:c,8d,8d,d,2d,c,c,c,c,8d#,8d#,2d#,d,d,d,c,8d,8d,d,2d,c,c,c,c,8d#,8d#,d#,2d#,d,c#,c,c6,1b.,g,f,1g." > song.cpp
-
-Make_song.exe: Make_song.cpp
-	g++ Make_song.cpp -o Make_song.exe
-	
+SEARCH  :=    
+    
+song.cpp: Makefile make_song.exe bond.txt     
+	make_song "bond.txt" > song.cpp
+ 
+make_song.exe: make_song.cpp 
+	g++ make_song.cpp -o make_song.exe
+	 
 # set REATIVE to the next higher directory 
 # and defer to the Makefile.due there
 RELATIVE := $(RELATIVE)../

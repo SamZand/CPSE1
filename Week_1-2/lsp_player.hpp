@@ -1,8 +1,8 @@
 #include "player.hpp"
 #include "hwlib.hpp"
 
-#ifndef lsp_player_HPP
-#define lsp_player_HPP
+#ifndef lsp_player_hpp
+#define lsp_player_hpp
 
 class lsp_player : public player {
 private:   
@@ -28,4 +28,4 @@ public:
    }
 };
 
-#endif // LSP_PLAYER_HPP
+#endif
