@@ -18,12 +18,54 @@ constexpr hwlib::location square(const hwlib::location& lhs)
     return hwlib::location(m, m);
 }
 
-constexpr void klok(auto oled, auto middenpunt)
+template< int N, typename T >
+class lookup_groot {
+private:    
+   T values[ N ];
+public: 
+   template< typename F >
+   constexpr lookup_groot( F function ){
+      for( int i = 0; i < N; ++i ){
+          values[ i ] = function( i );
+      }
+   }
+   constexpr T get( int n ) const {
+      return values[ n ];    
+   }
+};
+
+template< int N, typename T >
+class lookup_klein {
+private:    
+   T values[ N ];
+public: 
+   template< typename F >
+   constexpr lookup_klein( F function ){
+      for( int i = 0; i < N; ++i ){
+          values[ i ] = function( i );
+      }
+   }
+   constexpr T get( int n ) const {
+      return values[ n ];    
+   }
+};
+
+constexpr void klok_groot(auto &oled, auto middenpunt)
 {
-    for(int angle_degrees = 0; angle_degrees < 360; angle_degrees += 30) {
+    for(int angle_degrees = -180; angle_degrees < 180; angle_degrees += 6) {
 	hwlib::circle(hwlib::location(
 	(middenpunt.x + scaled_sine_from_degrees(angle_degrees, 30)),
 	(middenpunt.y + scaled_cosine_from_degrees(angle_degrees, 30))
+	),1).draw(oled);
+    }
+}
+
+constexpr void klok_klein(auto &oled, auto middenpunt)
+{
+    for(int angle_degrees = -180; angle_degrees < 180; angle_degrees += 30) {
+	hwlib::circle(hwlib::location(
+	(middenpunt.x + scaled_sine_from_degrees(angle_degrees, 20)),
+	(middenpunt.y + scaled_cosine_from_degrees(angle_degrees, 20))
 	),1).draw(oled);
     }
 }
@@ -43,6 +85,7 @@ int main(void)
 
     oled.clear();
     hwlib::circle(oled.size / 2, square(oled.size).x / 20).draw(oled);
+    klok_groot(oled, middenpunt);
+    klok_klein(oled, middenpunt);
     oled.flush();
-    klok(oled, middenpunt);
 }

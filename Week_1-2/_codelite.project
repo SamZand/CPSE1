@@ -31,7 +31,7 @@
   <VirtualDirectory Name="source">
     <File Name="main.cpp"/>
     <File Name="lsp_player.hpp"/>
-    <File Name="Make_song.cpp"/>
+    <File Name="make_song.cpp"/>
     <File Name="note.hpp"/>
     <File Name="player.hpp"/>
     <File Name="song.cpp"/>

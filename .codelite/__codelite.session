@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Session Name="C:\ti-software\v2cpse1-practica-SamZandee\__codelite.workspace">
-  <int Value="2" Name="m_selectedTab"/>
-  <wxString Value="C:\ti-software\v2cpse1-practica-SamZandee\__codelite.workspace" Name="m_workspaceName"/>
+<Session Name="C:\Users\SamZa\Documents\GitHub\v2cpse1-practica-SamZandee\__codelite.workspace">
+  <int Value="1" Name="m_selectedTab"/>
+  <wxString Value="C:\Users\SamZa\Documents\GitHub\v2cpse1-practica-SamZandee\__codelite.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="C:\ti-software\v2cpse1-practica-SamZandee\Week_3-1\main.cpp" Name="FileName"/>
-      <int Value="8" Name="FirstVisibleLine"/>
-      <int Value="33" Name="CurrentLine"/>
+      <wxString Value="C:\Users\SamZa\Documents\GitHub\v2cpse1-practica-SamZandee\Week_3-1\math_fun.hpp" Name="FileName"/>
+      <int Value="4" Name="FirstVisibleLine"/>
+      <int Value="18" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\ti-software\v2cpse1-practica-SamZandee\Week_3-1\math_fun.hpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="31" Name="CurrentLine"/>
+      <wxString Value="C:\Users\SamZa\Documents\GitHub\v2cpse1-practica-SamZandee\Week_3-1\main.cpp" Name="FileName"/>
+      <int Value="44" Name="FirstVisibleLine"/>
+      <int Value="51" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\ti-software\v2cpse1-practica-SamZandee\Week_3-1\makefile" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="22" Name="CurrentLine"/>
+      <wxString Value="C:\Users\SamZa\Documents\GitHub\v2cpse1-practica-SamZandee\Klok_voorbeeld\main.cpp" Name="FileName"/>
+      <int Value="56" Name="FirstVisibleLine"/>
+      <int Value="75" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\ti-software\v2cpse1-practica-SamZandee\Week_1-2\main.cpp" Name="FileName"/>
+      <wxString Value="C:\Users\SamZa\Documents\GitHub\v2cpse1-practica-SamZandee\Week_2-1\make_message.cpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
       <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\ti-software\v2cpse1-practica-SamZandee\Week_1-2\Make_song.cpp" Name="FileName"/>
-      <int Value="148" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <wxString Value="C:\Users\SamZa\Documents\GitHub\v2cpse1-practica-SamZandee\Week_2-1\main.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="14" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

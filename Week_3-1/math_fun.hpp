@@ -16,7 +16,7 @@ double taylor( double a, int n ){
 }
 
 double sin( double a ){
-   return taylor( a, 13 );
+   return taylor( a, 17 );
 }
 
 double radians_from_degrees( int degrees ){
