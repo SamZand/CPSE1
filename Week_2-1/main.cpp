@@ -1,7 +1,7 @@
 #include "hwlib.hpp"
 #include "message.hpp"
 
-const char* text = "Hello world\n";
+const char* text = "Hello world 123 HOI @\n";
 
 extern "C" void uart_put_char(char c)
 {
@@ -10,10 +10,7 @@ extern "C" void uart_put_char(char c)
 
 extern "C" void print_asciz(const char* s);
 
-void application()
-{
-    print_asciz(text);
-}
+extern "C" void application();
 
 int main(void)
 {
@@ -27,7 +24,7 @@ int main(void)
     hwlib::wait_ms(500);
 
     application();
-
+	
     // HWLIB_TRACE;
     // HWLIB_TRACE;
 }

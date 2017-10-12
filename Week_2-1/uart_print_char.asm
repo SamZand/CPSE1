@@ -2,10 +2,12 @@
    .text
    .align 1
    .global print_asciz
+   .global application
 
 print_asciz:
    push { r5, lr }
    mov  r5, r0
+   
 loop: 
    ldrb r0, [ r5 ]   	//laad in
    add  r0, r0, #0		// 
@@ -17,9 +19,16 @@ loop:
 done: 
    pop  { r5, pc }
    
+tekst:
+	.asciz "Helle world, ANSWER 421"
+	
+    .align 1   
 application:
-
-
+	push {lr}
+	ldr r0, =tekst
+	bl print_asciz
+	pop {pc}
+	
 isupper:
     mov r1, r0
     sub r1, r1, #'A'
@@ -44,5 +53,5 @@ islower:
     add r0, r0, r2
     b return 
     
-return:    
+return:
     mov pc, lr
