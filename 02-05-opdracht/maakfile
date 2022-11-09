@@ -1,0 +1,28 @@
+gcc := g++ -std=c++17
+ln := g++ -std=c++17
+rm := del -f
+
+.PHONEY: build clean removemelody
+
+removemelody:
+	$(rm) melody.cpp
+
+melody.cpp: build
+
+build: generator.exe
+	./generator.exe
+
+clean:
+	$(rm) generator.exe generator.o rtttl_player.o file_printer.o
+
+generator.exe: generator.o file_printer.o rtttl_player.o
+	$(ln) generator.o file_printer.o rtttl_player.o -o generator.exe
+
+generator.o: generator.cpp file_printer.hpp melody.hpp rtttl_player.hpp fur_elise.hpp note_player.hpp note.hpp
+	$(gcc) -c generator.cpp -o generator.o
+
+file_printer.o: file_printer.cpp file_printer.hpp note_player.hpp note.hpp
+	$(gcc) -c file_printer.cpp -o file_printer.o
+
+rtttl_player.o: rtttl_player.cpp rtttl_player.hpp note_player.hpp note.hpp
+	$(gcc) -c rtttl_player.cpp -o rtttl_player.o
