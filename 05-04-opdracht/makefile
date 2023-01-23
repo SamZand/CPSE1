@@ -1,25 +1,18 @@
-#============================================================================
-#
-# simple project makefile (just a main file)
-#
-# (c) Wouter van Ooijen (wouter@voti.nl) 2017
-#
-# Distributed under the Boost Software License, Version 1.0.
-# (See accompanying file LICENSE_1_0.txt or copy at 
-# http://www.boost.org/LICENSE_1_0.txt) 
-#
-#============================================================================
+EXEC := main.exe
 
-# source files in this project (main.* is automatically assumed)
-SOURCES := 
+gcc := g++ -std=c++17 -fexceptions
+rm := del
 
-# header files in this project
-HEADERS := verzameling.hpp
+.PHONY := all build clean
 
-# other places to look for files for this project
-SEARCH  := 
+SOURCES := $(wildcard *.cpp)
 
-# set RELATIVE to the next higher directory 
-# and defer to the appropriate Makefile.* there
-RELATIVE := $(RELATIVE)../
-include $(RELATIVE)Makefile.native
+all: build
+	./$(EXEC)
+
+build:
+	$(gcc) -c $(SOURCES) $(INCLUDE)
+	$(gcc) *.o -o $(EXEC) $(LIB) $(LIBS) -static
+
+clean:
+	$(rm) $(EXEC) *.o
